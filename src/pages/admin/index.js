@@ -1,12 +1,13 @@
-import React from 'react';
-import Head from 'next/head';
-import PageTransition from '@/components/PageTransition';
-import AdminLayout from '@/layouts/AdminLayout';
-import CardBarChartContainer from '@/containers/CardBarChartContainer';
-import CardTableContainer from '@/containers/CardTableContainer';
-import AdminHeaderStatsContainer from '@/containers/AdminHeaderStatsContainer';
-import Modal from '@/components/Modal';
-import CheckFeedbackDataContainer from '@/containers/CheckFeedbackDataContainer';
+import React from "react";
+import Head from "next/head";
+import PageTransition from "@/components/PageTransition";
+import AdminLayout from "@/layouts/AdminLayout";
+import CardBarChartContainer from "@/containers/CardBarChartContainer";
+import CardSummaryContainer from "@/containers/CardSummaryContainer";
+import CardTableContainer from "@/containers/CardTableContainer";
+import AdminHeaderStatsContainer from "@/containers/AdminHeaderStatsContainer";
+import Modal from "@/components/Modal";
+import CheckFeedbackDataContainer from "@/containers/CheckFeedbackDataContainer";
 
 export default function sentimentAnalysis() {
   return (
@@ -34,6 +35,9 @@ export default function sentimentAnalysis() {
                   <div className="w-full shadow-2xl h-full">
                     <CardTableContainer />
                   </div>
+                </div>
+                <div className="w-full shadow-2xl h-full mt-5">
+                  <CardSummaryContainer />
                 </div>
               </div>
             }

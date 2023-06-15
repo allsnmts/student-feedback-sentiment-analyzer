@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
 const selectAdmin = (state) => state.admin;
 
@@ -12,7 +12,7 @@ export const selectStudent = createSelector(
   (admin) => admin.student
 );
 
-const categories = ['total', 'positive', 'negative', 'neutral'];
+const categories = ["positive", "negative", "total"];
 
 export const selectSortedByCatergoryFeedBackObj = createSelector(
   [selectFeedbackArr],
@@ -20,7 +20,7 @@ export const selectSortedByCatergoryFeedBackObj = createSelector(
     categories.reduce(
       (obj, category) => (
         (obj[category] =
-          category.toLowerCase() === 'total'
+          category.toLowerCase() === "total"
             ? feedbackArr
             : feedbackArr.filter(
                 (d) => category === d.feedbackCategory.toLowerCase()
@@ -29,6 +29,23 @@ export const selectSortedByCatergoryFeedBackObj = createSelector(
       ),
       {}
     )
+);
+
+const summary = ["positive", "negative", "total"];
+
+export const test = createSelector([selectFeedbackArr], (feedbackArr) =>
+  summary.reduce(
+    (obj, category) => (
+      (obj[category] =
+        category.toLowerCase() === "total"
+          ? feedbackArr
+          : feedbackArr.filter(
+              (d) => category === d.feedbackCategory.toLowerCase()
+            )),
+      obj
+    ),
+    {}
+  )
 );
 
 export const selectAllCategoriesExceptTotalObj = createSelector(
