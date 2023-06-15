@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { faFileCsv } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from './Buttons/Button';
+import React, { useRef, useState, useEffect } from "react";
+import { faFileCsv } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "./Buttons/Button";
 
 export default function DragDropFile({ convertCSVFile, handleModalClose }) {
   const dragDropRef = useRef(null),
@@ -29,19 +29,33 @@ export default function DragDropFile({ convertCSVFile, handleModalClose }) {
     if (dragDropRef.current) ref = dragDropRef.current;
 
     if (ref) {
-      ref.addEventListener('dragover', onDragOver);
-      ref.addEventListener('drop', onDrop);
+      ref.addEventListener("dragover", onDragOver);
+      ref.addEventListener("drop", onDrop);
     }
 
     return () => {
-      ref.removeEventListener('dragover', onDragOver);
-      ref.removeEventListener('drop', onDrop);
+      ref.removeEventListener("dragover", onDragOver);
+      ref.removeEventListener("drop", onDrop);
     };
   }, []);
 
   const convertToCsv = () => {
     if (file) {
-      convertCSVFile(file);
+      // convertCSVFile(file);
+      const formData = new FormData();
+      formData.append("file", file);
+
+      fetch("/uploads", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("File uploaded successfully:", data);
+        })
+        .catch((error) => {
+          console.error("Error uploading file:", error);
+        });
       handleModalClose();
     }
   };
@@ -58,7 +72,7 @@ export default function DragDropFile({ convertCSVFile, handleModalClose }) {
   };
 
   const formatToKB = (bytes) => {
-    if (!+bytes) return '0 Bytes';
+    if (!+bytes) return "0 Bytes";
 
     const k = 1024;
     const i = Math.floor(Math.log(bytes) / Math.log(k));
@@ -107,7 +121,7 @@ export default function DragDropFile({ convertCSVFile, handleModalClose }) {
       <div className="flex flex-col justify-between items-start">
         <ul
           className={`${
-            !file ? 'opacity-0' : 'opacity-1'
+            !file ? "opacity-0" : "opacity-1"
           } max-w-md divide-y divide-gray-200 dark:divide-gray-700`}
         >
           <li className="pb-3 sm:pb-4">

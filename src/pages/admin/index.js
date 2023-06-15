@@ -36,9 +36,9 @@ export default function sentimentAnalysis() {
                     <CardTableContainer />
                   </div>
                 </div>
-                <div className="w-full shadow-2xl h-full mt-5">
+                {/* <div className="w-full shadow-2xl h-full mt-5">
                   <CardSummaryContainer />
-                </div>
+                </div> */}
               </div>
             }
           />
