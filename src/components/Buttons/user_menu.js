@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import PageTransition from "@/components/PageTransition";
 import Button from "@/components/Buttons/Button";
 
-export default function Home() {
+export default function user_menu() {
   const [mode, setMode] = useState(""),
     router = useRouter();
 
