@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useRef, useState, useEffect } from "react";
 import { faFileCsv } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,21 +42,7 @@ export default function DragDropFile({ convertCSVFile, handleModalClose }) {
 
   const convertToCsv = () => {
     if (file) {
-      // convertCSVFile(file);
-      const formData = new FormData();
-      formData.append("file", file);
-
-      fetch("/uploads", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("File uploaded successfully:", data);
-        })
-        .catch((error) => {
-          console.error("Error uploading file:", error);
-        });
+      convertCSVFile(file);
       handleModalClose();
     }
   };

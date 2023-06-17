@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Head from 'next/head';
-import dashboard from '../../public/images/dashboard.jpg';
-import { homePage } from '../content/pages';
-import Layout from '@/layouts/Layout';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Head from "next/head";
+import dashboard from "../../public/images/dashboard.png";
+import { homePage } from "../content/pages";
+import Layout from "@/layouts/Layout";
 import {
   AnimatedTextSpring,
   AnimatedTextTypeWriter,
-} from '@/components/AnimatedText';
-import { useRouter } from 'next/router';
-import PageTransition from '@/components/PageTransition';
-import Button from '@/components/Buttons/Button';
+} from "@/components/AnimatedText";
+import { useRouter } from "next/router";
+import PageTransition from "@/components/PageTransition";
+import Button from "@/components/Buttons/Button";
 
 export default function Home() {
-  const [mode, setMode] = useState(''),
+  const [mode, setMode] = useState(""),
     router = useRouter();
 
   useEffect(() => {
-    setMode(window.localStorage.getItem('theme'));
+    setMode(window.localStorage.getItem("theme"));
   }, [mode]);
 
   return (
     <>
       <Head>
-        <title>USFA | Home</title>
+        <title>SFSA | Home</title>
         <meta name="description" content="" />
       </Head>
 
@@ -34,8 +34,8 @@ export default function Home() {
             <div
               key={i}
               className={`flex items-center justify-between w-full lg:flex-col ${
-                i < homePage.homeSectionArr.length - 1 && 'mb-32 md:mb-16'
-              } ${i % 2 === 1 && 'flex-row-reverse'} gap-8`}
+                i < homePage.homeSectionArr.length - 1 && "mb-32 md:mb-16"
+              } ${i % 2 === 1 && "flex-row-reverse"} gap-8`}
             >
               <div className="w-1/2 md:w-full border border-solid shadow-lg dark:bg-dark dark:border-light">
                 <Image
@@ -61,24 +61,9 @@ export default function Home() {
                 ))}
                 <div
                   className={`flex flex-row gap-4 items-center self-center lg:self-center ${
-                    i > 0 ? 'hidden' : 'flex'
+                    i > 0 ? "hidden" : "flex"
                   }`}
-                >
-                  <Button
-                    className="!font-semibold rounded-3xl !text-lg"
-                    onClick={() => router.push('/about')}
-                  >
-                    Learn More
-                  </Button>
-                  <Button
-                    className="font-semibold !text-lg rounded-3xl !underline !text-dark dark:!text-light !bg-transparent !border-transparent !shadow-none hover:!text-primary 
-                    hover:!decoration-primary dark:hover:!text-primaryDark 
-                    dark:hover:!decoration-primaryDark"
-                    onClick={() => router.push('/team')}
-                  >
-                    Our Team
-                  </Button>
-                </div>
+                ></div>
               </div>
             </div>
           ))}
