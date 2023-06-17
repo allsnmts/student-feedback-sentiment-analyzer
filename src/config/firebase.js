@@ -8,24 +8,24 @@ import {
   setDoc,
 } from "firebase/firestore";
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCyGN5LO-J23PUEV7yyvjOOwjAyahcimHM",
-//   authDomain: "next-student-feedback.firebaseapp.com",
-//   projectId: "next-student-feedback",
-//   storageBucket: "next-student-feedback.appspot.com",
-//   messagingSenderId: "909976799198",
-//   appId: "1:909976799198:web:88472cf1fd17898bd5ff4f",
-// };
-
 const firebaseConfig = {
-  apiKey: "AIzaSyCuglutPhIHeROP3qI0gIfoRPW-xalmDQo",
-  authDomain: "student-sentiment-analyzer.firebaseapp.com",
-  projectId: "student-sentiment-analyzer",
-  storageBucket: "student-sentiment-analyzer.appspot.com",
-  messagingSenderId: "790489988365",
-  appId: "1:790489988365:web:b980068c73091961828444",
-  measurementId: "G-8J81SJYEBM",
+  apiKey: "AIzaSyCyGN5LO-J23PUEV7yyvjOOwjAyahcimHM",
+  authDomain: "next-student-feedback.firebaseapp.com",
+  projectId: "next-student-feedback",
+  storageBucket: "next-student-feedback.appspot.com",
+  messagingSenderId: "909976799198",
+  appId: "1:909976799198:web:88472cf1fd17898bd5ff4f",
 };
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCuglutPhIHeROP3qI0gIfoRPW-xalmDQo",
+//   authDomain: "student-sentiment-analyzer.firebaseapp.com",
+//   projectId: "student-sentiment-analyzer",
+//   storageBucket: "student-sentiment-analyzer.appspot.com",
+//   messagingSenderId: "790489988365",
+//   appId: "1:790489988365:web:b980068c73091961828444",
+//   measurementId: "G-8J81SJYEBM",
+// };
 
 export const app = initializeApp(firebaseConfig),
   auth = getAuth(),
