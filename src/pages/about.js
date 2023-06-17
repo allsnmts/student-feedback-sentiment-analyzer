@@ -47,7 +47,7 @@ export default function about() {
               <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center">
                 <AnimatedTextTypeWriter
                   text={title}
-                  className="text-6xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-3xl text-left lg:text-center"
+                  className="text-6xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-3xl text-left lg:text-center text-primary dark:text-primaryDark/90"
                 />
                 {paragraphsArr.map((p, i) => (
                   <AnimatedTextSpring
